@@ -6,4 +6,6 @@ Examples of applications using Spring BOOT + RestController + Spring MVC + Thyme
 3°) TP 4:  Spring BOOT + MVC + Rest + Spring Data JPA + MySQL
 4°) TP 5 : Spring BOOT + RestTemplate
 5°) TP 6 : Spring BOOT + ThymeLeaf + Security + DATA JPA + MySQL
+5°) TP 6b : Spring BOOT + ThymeLeaf + Security + DATA JPA + MySQL
+Idem as TP n° 6  + dynamically associate the action to the role within Spring Security.
 6°) TP 7 :  Spring BOOT + ThymeLeaf + Security + DATA JPA + CRUD +MySQL
