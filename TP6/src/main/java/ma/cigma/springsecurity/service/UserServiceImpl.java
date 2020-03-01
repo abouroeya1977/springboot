@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import ma.cigma.springsecurity.dao.MyActionRepository;
 import ma.cigma.springsecurity.dao.RoleRepository;
 import ma.cigma.springsecurity.dao.UserRepository;
 import ma.cigma.springsecurity.domaine.RoleConverter;
@@ -29,6 +30,8 @@ public class UserServiceImpl implements IUserService {
 	private UserRepository userRepository;
 	@Autowired
 	private RoleRepository roleRepository;
+	@Autowired
+	private MyActionRepository myActionRepository;
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -93,6 +96,7 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public void cleanDataBase() {
+		myActionRepository.deleteAll();
 		userRepository.deleteAll();
 		roleRepository.deleteAll();
 	}
