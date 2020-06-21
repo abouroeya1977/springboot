@@ -16,6 +16,9 @@ The maven projet created will produce a war file.
 Idem as TP n° 6  + dynamically associate the action to the role within Spring Security.
 7°) TP 7 :  Spring BOOT + ThymeLeaf + Security + DATA JPA + CRUD +MySQL
 8°) TP 8: Spring BOOT + ThymeLeaf + Security + DATA JPA + CRUD +MySQL+ AOP
+9°) springbootbeanvalidation : Implenting bean validation using Spring Boot
+10°) springbootfileloader : Uploading and downloading file using Spring Boot
+11°) springbootmailsender  : Sending email using Spring BOOT
 
 # Applications Server : EJB + JSF + Primefaces
 1)articles : developping a EJB project using  EJB 3.0 and Wildfly 8.2
