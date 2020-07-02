@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Formation Spring Boot : Services Web</title>
+ <link th:rel="stylesheet" th:href="@{assets/bootstrap-select-1.13.9/dist/css/bootstrap-select.css}"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+
+<body>
+	<div class="container">
+
+		<form th:action="@{/logout}" method="get">
+			<button class="btn btn-md btn-danger btn-block" name="registration"
+				type="Submit">Logout</button>
+		</form>
+
+		<div class="panel-group" style="margin-top: 40px">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<span th:utext="${userName}"></span>
+				</div>
+				<div class="panel-body">
+					<div align="center" th:if="${excep}">
+						<p style="font-size: 20; color: #FF1C19;">Vous n'avez pas le
+							droit d'exécuter cette fonction</p>
+					</div>
+					<div th:switch="${users}">
+						<h1 th:case="null">Aucun Utilisateur !</h1>
+						<div th:case="*" class="container">
+							<h3>Liste des utilisateurs :</h3>
+							<table>
+								<thead>
+									<tr>
+										<th>Username</th>
+										<th>Roles</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="userVo : ${users}">
+										<td th:text="${userVo.username}"></td>
+										<td>
+										<strong th:text="${#strings.listJoin(userVo.roles, ',')}"></strong>
+										</td>
+
+
+										<td><a
+											th:href="@{/superadmin/edit/{id}(id=${userVo.id})}">Edit</a></td>
+										<td><a
+											th:href="@{/superadmin/delete/{id}(id=${userVo.id})}">Delete</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<p>
+							<a href="/admin/emp/form">Ajouter un nouvel employé</a>
+						</p>
+					</div>
+
+
+
+				</div>
+				<p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

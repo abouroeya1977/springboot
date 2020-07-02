@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Formation Spring Boot : Services Web</title>
+ <link th:rel="stylesheet" th:href="@{assets/bootstrap-select-1.13.9/dist/css/bootstrap-select.css}"/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<form th:action="@{/superadmin/save}" method="POST" class="form-signin"
+			th:object="${userVo}">
+			<h3 class="form-signin-heading" th:text="Nouveau"></h3>
+			<br /> <input th:field="*{username}" type="text" id="username"
+				name="username" th:placeholder="Name" class="form-control" /> <br />
+				
+				<input th:field="*{password}" type="hidden" id="password"
+				name="password" th:placeholder="Password" class="form-control" /> <br />
+				
+				<br />
+				
+				<input th:field="*{id}" type="hidden" id="id"
+				name="id" th:placeholder="Id" class="form-control" /> <br />
+				
+				
+			<select th:field="${userVo.roles}" id="roles" multiple>
+
+				<option th:each="roleVo : ${allRoles}" th:value="${roleVo}"
+					th:text="${roleVo.role}">Role</option>
+
+			</select>
+			
+			<button class="btn btn-lg btn-primary btn-block" name="Submit"
+				value="Login" type="Submit" th:text="Modifier"></button>
+		</form>
+	</div>
+</body>
+</html>
